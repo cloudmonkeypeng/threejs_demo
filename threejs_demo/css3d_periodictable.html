@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<title>three.js css3d - periodic table</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>demo</title>
 		<style>
 			html, body {
 				height: 100%;
@@ -44,7 +44,7 @@
 				height: 180px;
 				box-shadow: 0px 0px 20px rgba(0,255,255,0.5);
 				border: 1px solid rgba(127,255,255,0.25);
-				cursor: default;
+				cursor: pointer;
 			}
 
 			.element:hover {
@@ -101,6 +101,23 @@
 				background-color: rgba(0,255,255,0.75);
 			}
 		</style>
+		<script type="text/javascript" src="jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="jquery.fancybox.js?v=2.1.4"></script>
+		<link rel="stylesheet" type="text/css" href="jquery.fancybox.css?v=2.1.4" media="screen" />
+		<script type="text/javascript">
+			$(document).ready(function() {
+				for ( var i = 0; i < table.length; i ++ ) {
+					$("#fancybox"+i).click(function() {
+						$.fancybox.open('1_b.jpg');
+					});
+				}
+			});
+		</script>
+		<style type="text/css">
+			.fancybox-custom .fancybox-skin {
+				box-shadow: 0 0 50px #222;
+			}
+		</style>
 	</head>
 	<body>
 		<script src="three.min.js"></script>
@@ -109,7 +126,6 @@
 		<script src="CSS3DRenderer.js"></script>
 
 		<div id="container"></div>
-		<div id="info"><a href="http://threejs.org" target="_blank">three.js css3d</a> - periodic table. <a href="https://plus.google.com/113862800338869870683/posts/QcFk5HrWran" target="_blank">info</a>.<a>再次改造 By Cloudmonkeypeng</a></div>
 		<div id="menu">
 			<button id="table">TABLE</button>
 			<button id="sphere">SPHERE</button>
@@ -257,10 +273,11 @@
 
 				for ( var i = 0; i < table.length; i ++ ) {
 
-					var item = table[ i ];
+					var item = table[ i ];					
 
 					var element = document.createElement( 'div' );
 					element.className = 'element';
+					element.id = 'fancybox'+i;
 					element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
 
 					var number = document.createElement( 'div' );
