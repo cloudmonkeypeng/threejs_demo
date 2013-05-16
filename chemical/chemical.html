@@ -3,7 +3,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>demo</title>
+		<title>化学元素周期表</title>
 		<style>
 			html, body {
 				height: 100%;
@@ -101,14 +101,15 @@
 				background-color: rgba(0,255,255,0.75);
 			}
 		</style>
-		<script type="text/javascript" src="jquery-1.9.0.min.js"></script>
-		<script type="text/javascript" src="jquery.fancybox.js?v=2.1.4"></script>
-		<link rel="stylesheet" type="text/css" href="jquery.fancybox.css?v=2.1.4" media="screen" />
+		<script type="text/javascript" src="../js/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.fancybox.js?v=2.1.4"></script>
+		<link rel="stylesheet" type="text/css" href="../css/jquery.fancybox.css?v=2.1.4" media="screen" />
 		<script type="text/javascript">
 			$(document).ready(function() {
 				for ( var i = 0; i < table.length; i ++ ) {
 					$("#fancybox"+i).click(function() {
-						$.fancybox.open('1_b.jpg');
+						var id = $(this).attr('id');
+						$.fancybox.open('img/'+id+'.jpg');
 					});
 				}
 			});
@@ -120,10 +121,10 @@
 		</style>
 	</head>
 	<body>
-		<script src="three.min.js"></script>
-		<script src="tween.min.js"></script>
-		<script src="TrackballControls.js"></script>
-		<script src="CSS3DRenderer.js"></script>
+		<script src="../js/three.min.js"></script>
+		<script src="../js/tween.min.js"></script>
+		<script src="../js/TrackballControls.js"></script>
+		<script src="../js/CSS3DRenderer.js"></script>
 
 		<div id="container"></div>
 		<div id="menu">
@@ -131,9 +132,8 @@
 			<button id="sphere">SPHERE</button>
 			<button id="helix">HELIX</button>
 			<button id="grid">GRID</button>
-
+		</div>
 		<script>
-
 			var table = [
 				[ "H", "Hydrogen", "1.00794", 1, 1 ],
 				[ "He", "Helium", "4.002602", 18, 1 ],
@@ -480,7 +480,6 @@
 				renderer.render( scene, camera );
 
 			}
-
 		</script>
 	</body>
 </html>
