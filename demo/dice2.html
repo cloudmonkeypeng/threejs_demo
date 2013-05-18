@@ -152,6 +152,14 @@
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
+				var info = document.createElement( 'div' );
+				info.style.position = 'absolute';
+				info.style.top = '10px';
+				info.style.width = '100%';
+				info.style.textAlign = 'center';
+				info.innerHTML = '空格键控制旋转';
+				container.appendChild( info );
+
 				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
 				camera.position.z = 500;
 
@@ -171,6 +179,7 @@
 				document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 				document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 				document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+				document.addEventListener( 'keydown' , onDocumentKeyDown, false );
 
 				window.addEventListener( 'resize', onWindowResize, false );
 
@@ -189,6 +198,17 @@
 			}
 
 			//
+			function onDocumentKeyDown(event){
+				if(event.which == '32'){
+					if(control==1){
+					control = 0;
+						//音乐暂停 
+					}else{
+						control = 1;
+						//放音乐
+					}
+				}
+			}
 
 			function onDocumentMouseDown( event ) {
 
@@ -266,7 +286,7 @@
 
 				cube.rotation.x += ( targetXRotation - cube.rotation.x ) * 0.05;
 				cube.rotation.y += ( targetYRotation - cube.rotation.y ) * 0.05;
-				if (control == 0) {
+				if (control == 1) {
 					cube.rotation.x += THREE.Math.randFloat(-1,1);
 					cube.rotation.y += THREE.Math.randFloat(-1,1);
 					cube.rotation.z += THREE.Math.randFloat(-1,1);
