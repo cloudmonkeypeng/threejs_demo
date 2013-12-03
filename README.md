@@ -7,6 +7,13 @@ I want to make fun with web app,especially the 3d app.Three.js give me a good ch
 
 The demo can't be used for commerical.
 
+=========================
+Test browser
+======================
+
+Chrome 31.0.1650.57
+
+
 Develop by
 ============
 Three.js 
